@@ -7,17 +7,3 @@ class Song < ActiveRecord::Base
 	
 end
 
-# include PgSearch
-
-#   pg_search_scope :search, against: [:restaurant_name], 
-#   	using: {tsearch: {dictionary: "english"}}
-
-
-#   def self.text_search(query)
-# 	  if query.present?
-# 	    search(query)
-# 	  else
-# 	    scoped
-# 	  end
-# 	end
-# end

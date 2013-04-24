@@ -1,0 +1,14 @@
+<table id="song_search">
+	<% @songs.each do |d| %>
+	<th> Restaurant </th>
+	<th> Building </th>
+	<th> Street </th>
+	<th> Zipcode </th>
+	<tr>
+		<td class="id"><%= s.id %><br></td>
+		<td class="name"><%= d.name %><br></td>
+		<td class="artist"><%= d.artist %><br></td>
+		<td class="duration"><%= d.duration %><br></td>
+	</tr>
+	<% end %>
+</table>
