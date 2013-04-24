@@ -27,7 +27,7 @@ class SongsController < ApplicationController
 	
 
 	def play
-		# link_to url
+		link_to url
 	end
 
 end
