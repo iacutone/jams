@@ -1,3 +1,23 @@
-<h2>Jambox</h2>
+<br>
+<table id="song_search">
+		<th>ID</th>
+		<th>Song Name</th>
+		<th>Artist</th>
+		<th>Duration</th>
+	
+	<tr>
+		<td class="id"><%= @song.id %><br></td>
+		<td class="name"><%= @song.name %><br></td>
+		<td class="artist"><%= @song.artist %><br></td>
+		<td class="duration"><%= @song.duration %><br></td>
+	</tr>
+</table><br>
+<%= link_to(@url) %>
 
-<%= render partial: 'form' %>
+<audio autoplay="autoplay" controls="controls">  
+    <source src='' />    
+</audio> 
+
+<!-- convert the audio mpeg and play
+find a player the can stream url's 
+stream the url as a background task somehow-->

@@ -18,5 +18,8 @@ end
 
 	song = songs.first
 	url = client.get_song_url(song)
+
+	# songs = client.search_songs('Joe Satriani')
+	# p = user.create_playlist('NAME', 'DESCRIPTION', songs)
 	
 	binding.pry

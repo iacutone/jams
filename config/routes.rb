@@ -1,7 +1,8 @@
 Jambox::Application.routes.draw do
   
   get 'songs/search' => 'songs#search'
-  match "/search" => 'songs#play', :as => 'play'
+  # get 'songs/show' => "songs#show"
+  # post 'songs/search' => 'songs#play'
 
 
   # The priority is based upon order of creation:

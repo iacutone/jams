@@ -1,26 +1,52 @@
-class ApiAuth < ActiveRecord::Base
-  attr_accessible :token
-
-  require 'rubygems'
 require 'grooveshark'
 require 'pry'
 
-client = Grooveshark::Client.new
+class ApiAuth < ActiveRecord::Base
 
-session = client.session
+  @@session_key = 0
+  @@client = "unassigned"
 
-songs = client.search_songs('Nirvana')
+  def self.s_key
+    @@session_key
+  end
 
-songs.each do |s|
-  s.id          # Song ID
-  s.name        # Song name
-  s.artist      # Song artist name
-  s.album       # Song album name
-  s.duration    # Song duration in seconds (not always present, 0 by default)
-  s.save
-end
+  def self.client
+    @@client
+  end
 
-	song = songs.first
-	url = client.get_song_url(song)
-	binding.pry
+  # def self.client=(new_client)
+  #   @@client = new_client
+  # end
+
+  def self.client_call(artist_search)
+    begin
+      ApiAuth.client.search_songs(artist_search)
+    rescue
+      sleep 4
+      re_up_token
+      client_call(artist_search)
+    end
+  end
+
+  def self.re_up_token
+    # reset_key
+    @@client = Grooveshark::Client.new(ApiAuth.s_key)
+
+    puts "----------"
+    puts "Made a new token, #{ApiAuth.client}"
+  end
+
+  # def self.reset_key
+  #   @@session_key = 0
+  # end
+  def self.get_and_add_url_param(song_match, params)
+    begin
+      params[:url] = ApiAuth.client.get_song_url(song_match)
+      params
+    rescue
+      sleep 4
+      re_up_token
+      get_and_add_url_param(song_match, params)
+    end
+  end
 end
