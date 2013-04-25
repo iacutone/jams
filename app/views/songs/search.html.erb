@@ -12,12 +12,7 @@
 		<td class="duration"><%= @song.duration %><br></td>
 	</tr>
 </table><br>
-<%= link_to(@url) %>
 
-<audio autoplay="autoplay" controls="controls">  
-    <source src='' />    
+<audio autoplay="autoplay" controls="controls">  <source src=<%= @url %> />    
 </audio> 
 
-<!-- convert the audio mpeg and play
-find a player the can stream url's 
-stream the url as a background task somehow-->
