@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423233213) do
+ActiveRecord::Schema.define(:version => 20130426191744) do
 
   create_table "api_auths", :force => true do |t|
     t.string   "token"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130423233213) do
     t.string   "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "vote"
   end
 
 end

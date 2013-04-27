@@ -1,7 +1,7 @@
 Jambox::Application.routes.draw do
   
   get 'songs/search' => 'songs#search'
-  # get 'songs/show' => "songs#show"
+  get 'songs/show' => "songs#show"
   # post 'songs/search' => 'songs#play'
 
 

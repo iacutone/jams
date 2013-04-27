@@ -6,13 +6,13 @@
 		<th>Duration</th>
 	
 	<tr>
-		<td class="id"><%= @song.id %><br></td>
-		<td class="name"><%= @song.name %><br></td>
-		<td class="artist"><%= @song.artist %><br></td>
-		<td class="duration"><%= @song.duration %><br></td>
+		<td class="id"><%= @save_song[:id] %><br></td>
+		<td class="name"><%= @save_song[:name] %><br></td>
+		<td class="artist"><%= @save_song[:artist] %><br></td>
+		<td class="duration"><%= @save_song[:duration] %><br></td>
 	</tr>
 </table><br>
 
-<audio autoplay="autoplay" controls="controls">  <source src=<%= @url %> />    
+<audio autoplay="autoplay" controls="controls" loop='true'>  <source src=<%= @save_song[:url] %> />    
 </audio> 
 
